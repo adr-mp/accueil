@@ -1,0 +1,467 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calcul scientifique pour mathemathique avancé</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="ac.css">
+</head>
+<body>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <nav class="navbar navbar-expand-lg navbar-dark navbar-gradient">
+        
+        <img id="logo" src="aaqq.png" alt="">
+      
+          <div class="container-fluid">
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                  <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class="collapse navbar-collapse" id="navbarNav">
+                  <ul class="navbar-nav">
+                    <a class="navbar-brand" href="index.html">Accueil</a>
+                      <li class="nav-item">
+                          <a class="nav-link" href="statistique.html">Fonctionnalités</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="contact.html">À propos</a>
+                      </li>
+                      <li class="nav-item">
+                          <a class="nav-link" href="contact.html">Quaternion+</a>
+                      </li>
+                  </ul>
+              </div>
+              <header class="header">
+                <h1 class="animated-title">Bienvenue sur Quaternion</h1>
+            </header>
+          </div>
+      </nav>
+    <style>
+        .navbar-gradient {
+            background: linear-gradient(to right, #8aa214,  #071d9b); 
+        }
+    </style>
+    
+
+    <div class="background">
+        <div class="background-images">
+            <img src="mc.jpg" alt="Image 1">
+            <img src="ter.jpg" alt="Image 2">
+            <img src="te.jpg" alt="Image 3">
+            <img src="n.jpg" alt="Image 4">
+        </div>
+    </div>
+    <script>
+        // Liste des images
+        const images = [
+            'mc.jpg',
+            'ter.jpg',
+            'te.jpg',
+            'n.jpg',
+
+        ];
+
+        let currentIndex = 0;
+
+        // Fonction pour changer d'image
+        function changeBackground() {
+            document.body.style.backgroundImage = `url('${images[currentIndex]}')`;
+            currentIndex = (currentIndex + 1) % images.length; // Passer à l'image suivante
+        }
+
+        // Changer d'image toutes les 5 secondes
+        setInterval(changeBackground, 5000);
+
+        // Initialisation
+        changeBackground();
+    </script>
+<div class="containert">
+    <div class="container">
+            <h2 class="q"> Quaternion ?</h2>
+            <p class="pp">
+                Quaternion est une plateforme dédiée au calcul scientifique et à ses multiples applications dans divers domaines. Explorez les possibilités offertes par la puissance des mathématiques et de l'informatique !
+            </p>
+    </div>
+     <div class="container">
+                <h2 class="q"> le calcul scientifique ?</h2>
+                <p class="pp">
+                    Le calcul scientifique est au cœur de la résolution des problèmes complexes dans divers domaines tels que l'ingénierie, 
+                    la physique, la biologie, et l'économie. En combinant mathématiques et puissance informatique, 
+                    il permet de simuler, d'analyser et d'optimiser des systèmes réels pour prendre de meilleures décisions et innover.
+                </p>
+     </div> 
+</div>
+
+<div class="monde">
+<div class="map-container">
+<div class="map-image-wrapper" style="position: relative;">
+    <img src="map.webp" alt="Carte mondiale de la recherche scientifique" class="map-image">
+    <div class="map-overlay">
+        <span class="overlay-text">Recherche Scientifique Mondiale</span>
+    </div>
+</div>
+<div class="map-description">
+    <h2>Carte Globale de la Recherche Scientifique</h2>
+    <p>Une visualisation comprehensive du leadership mondial en innovation et recherche scientifique</p>
+</div>
+</div>
+<div class="research-dashboard">
+    <div class="chart-section">
+        <canvas id="researchInvestmentChart"></canvas>
+        <div class="country-ranking">
+            <h3 style="text-align: center; margin-bottom: 15px; color: var(--primary-color);">
+                Top 5 Pays en Investissement R&D
+            </h3>
+            <div class="country-item">
+                <span>🇺🇸 États-Unis</span>
+                <strong>582 Milliards $</strong>
+            </div>
+            <div class="country-item">
+                <span>🇨🇳 Chine</span>
+                <strong>441 Milliards $</strong>
+            </div>
+            <div class="country-item">
+                <span>🇯🇵 Japon</span>
+                <strong>170 Milliards $</strong>
+            </div>
+            <div class="country-item">
+                <span>🇩🇪 Allemagne</span>
+                <strong>132 Milliards $</strong>
+            </div>
+            <div class="country-item">
+                <span>🇰🇷 Corée du Sud</span>
+                <strong>88 Milliards $</strong>
+            </div>
+        </div>
+    </div>
+    <div class="stats-section">
+        <div class="stat-card">
+            <div class="info-tooltip" title="Nombre total de chercheurs à travers le monde">ℹ️</div>
+            <div class="stat-number" id="researchersCount">0</div>
+            <div class="stat-label">Chercheurs Actifs</div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="info-tooltip" title="Publications scientifiques annuelles mondiales">ℹ️</div>
+            <div class="stat-number" id="publicationsCount">0</div>
+            <div class="stat-label">Publications Scientifiques</div>
+        </div>
+        
+        <div class="stat-card">
+            <div class="info-tooltip" title="Capacité totale de calcul des supercalculateurs mondiaux">ℹ️</div>
+            <div class="stat-number" id="computationPower">0</div>
+            <div class="stat-label">Puissance de Calcul (ExaFLOPS)</div>
+        </div>
+    </div>
+</div>
+</div>
+        <div class="container1">
+            <img src="tun.png" alt="Logo de la Tunisie" class="logo">
+            <div class="title">La Recherche Scientifique en Tunisie</div>
+            <p class="paragraph">
+                La recherche scientifique en Tunisie a connu un développement notable au cours des dernières années, visant à renforcer l'innovation et à diversifier les secteurs d'expertise. Les institutions tunisiennes, telles que le <span>Centre National de Recherche Scientifique et Technique (CNRST)</span> et les universités, ont joué un rôle clé dans l'avancement des connaissances, notamment dans des domaines comme les sciences de l'ingénierie, la médecine, et l'agronomie. 
+                Bien que des progrès soient visibles, des défis restent présents, tels que le financement insuffisant et l'intégration de la recherche dans le secteur industriel. Des efforts sont nécessaires pour renforcer l'innovation et faciliter le transfert technologique afin de soutenir un développement économique durable.
+            </p>
+            <h2>Moyenne de Recherche Scientifique en Tunisie par ans</h2>
+            <div class="stats">
+                <div class="stat">
+                    <h2 class="counter" data-target="20">0</h2>
+                    <p>Augmentation des publications (%)</p>
+                </div>
+                <div class="stat">
+                    <h2 class="counter" data-target="522">0</h2>
+                    <p>Structures de recherche</p>
+                </div>
+                <div class="stat">
+                    <h2 class="counter" data-target="13800">0</h2>
+                    <p>Chercheurs actifs</p>
+                </div>
+    </div>
+</div>
+<div class="fin">
+ <div class="containertt">
+    <!-- Section de l'image -->
+    <div class="image-sectiont">
+      <img src="best.webp" alt="Nikola Tesla">
+    </div>
+
+    <!-- Section de la citation -->
+    <div class="text-sectiont">
+      <p>"If you want to find the secrets of the universe, think in terms of energy, frequency, and vibration."</p>
+      <h2>Nikola Tesla</h2>
+    </div>
+ </div>
+
+ <div class="containersh">
+    <p style="margin-top: 10px; font-size: 1rem; color: #aaa;">
+        l'équation de Schrodinger dans la mecanique quantique
+      </p>
+    <div class="equation">
+      iħ ∂ψ/∂t = Ĥψ
+    </div>
+    <img src="s.jpg" id="shro" alt="">
+  </div>
+</div>
+<div class="containermx">
+    <div class="mxcont">
+    <h1 style="text-align: center; color: #1e40af;">Les de Équations de Maxwell <img src="m.jpg" id="mexq" alt=""></h1>
+    </div>
+    <p id="eqdef">Les équations de Maxwell, aussi appelées équations de Maxwell-Lorentz, du nom du physicien écossais James Clerk Maxwell, sont des lois fondamentales de la physique. Elles constituent, avec l'expression de la force électromagnétique de Hendrik Lorentz, les postulats de base de l'électromagnétisme.
+        <a href="https://fr.wikipedia.org/wiki/%C3%89quations_de_Maxwell">en savoir plus </a>
+    </p>
+    <div class="equation-grid" id="equations-container"></div>
+    <div class="animeq">
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#1e40af"/>
+                </marker>
+            </defs>
+            
+            <circle cx="100" cy="100" r="50" fill="#3b82f6" opacity="0.5"/>
+            
+            <g stroke="#1e40af" stroke-width="2" marker-end="url(#arrowhead)">
+                <animateTransform 
+                    attributeName="transform"
+                    type="rotate"
+                    from="0 100 100"
+                    to="360 100 100"
+                    dur="4s"
+                    repeatCount="indefinite"
+                />
+                <line x1="100" y1="50" x2="100" y2="20" />
+                <line x1="100" y1="150" x2="100" y2="180" />
+                <line x1="50" y1="100" x2="20" y2="100" />
+                <line x1="150" y1="100" x2="180" y2="100" />
+            </g>
+        </svg>
+        
+        <!-- Animation Loi de Gauss Magnétique -->
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#1e40af"/>
+                </marker>
+            </defs>
+            
+            <path d="M50,100 Q100,50 150,100 Q100,150 50,100" 
+                  fill="none" stroke="#3b82f6" stroke-width="3">
+                <animateTransform 
+                    attributeName="transform"
+                    type="rotate"
+                    from="0 100 100"
+                    to="360 100 100"
+                    dur="5s"
+                    repeatCount="indefinite"
+                />
+            </path>
+            
+            <g stroke="#1e40af" stroke-width="2" marker-end="url(#arrowhead)">
+                <line x1="50" y1="100" x2="30" y2="100" />
+                <line x1="150" y1="100" x2="170" y2="100" />
+            </g>
+        </svg>
+        
+        <!-- Animation Loi de Faraday -->
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#1e40af"/>
+                </marker>
+            </defs>
+            
+            <circle cx="100" cy="100" r="50" fill="#3b82f6" opacity="0.3"/>
+            
+            <path d="M70,100 A30,30 0 1,1 130,100" 
+                  fill="none" stroke="#1e40af" stroke-width="3" stroke-dasharray="5,5">
+                <animateTransform 
+                    attributeName="transform"
+                    type="rotate"
+                    from="0 100 100"
+                    to="360 100 100"
+                    dur="3s"
+                    repeatCount="indefinite"
+                />
+            </path>
+            
+            <g stroke="#1e40af" stroke-width="2" marker-end="url(#arrowhead)">
+                <line x1="100" y1="50" x2="100" y2="30" />
+                <line x1="100" y1="150" x2="100" y2="170" />
+            </g>
+        </svg>
+        
+        <!-- Animation Loi d'Ampère-Maxwell -->
+        <svg viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+                <marker id="arrowhead" markerWidth="10" markerHeight="7" refX="0" refY="3.5" orient="auto">
+                    <polygon points="0 0, 10 3.5, 0 7" fill="#1e40af"/>
+                </marker>
+            </defs>
+            
+            <line x1="100" y1="50" x2="100" y2="150" stroke="#3b82f6" stroke-width="5">
+                <animate 
+                    attributeName="opacity"
+                    values="0.3;1;0.3"
+                    dur="2s"
+                    repeatCount="indefinite"
+                />
+            </line>
+            
+            <g stroke="#1e40af" stroke-width="2" fill="none">
+                <path d="M70,100 A30,30 0 1,1 130,100" opacity="0.7">
+                    <animateTransform 
+                        attributeName="transform"
+                        type="rotate"
+                        from="0 100 100"
+                        to="360 100 100"
+                        dur="4s"
+                        repeatCount="indefinite"
+                    />
+                </path>
+                <path d="M50,100 A50,50 0 1,1 150,100" opacity="0.5">
+                    <animateTransform 
+                        attributeName="transform"
+                        type="rotate"
+                        from="0 100 100"
+                        to="-360 100 100"
+                        dur="5s"
+                        repeatCount="indefinite"
+                    />
+                </path>
+            </g>
+        </svg>
+    </div>
+</div>
+<div id="cont">
+<div class="title-container">
+    <h3 id="tsc">Exemples des célèbres scientifiques du monde</h3>
+    <svg viewBox="0 0 1200 200" xmlns="http://www.w3.org/2000/svg" preserveAspectRatio="none">
+        <!-- Axes -->
+        <line class="axis" x1="0" y1="100" x2="1200" y2="100" /> <!-- Axe horizontal -->
+        <line class="axis" x1="600" y1="0" x2="600" y2="200" /> <!-- Axe vertical -->
+    
+        <!-- Graduations de l'axe horizontal -->
+        <line class="grid-line" x1="200" y1="0" x2="200" y2="200" />
+        <line class="grid-line" x1="400" y1="0" x2="400" y2="200" />
+        <line class="grid-line" x1="800" y1="0" x2="800" y2="200" />
+        <line class="grid-line" x1="1000" y1="0" x2="1000" y2="200" />
+    
+        <!-- Graduations de l'axe vertical -->
+        <line class="grid-line" x1="0" y1="50" x2="1200" y2="50" />
+        <line class="grid-line" x1="0" y1="150" x2="1200" y2="150" />
+    
+        <!-- Valeurs des axes -->
+        <text x="190" y="115">-2π</text>
+        <text x="390" y="115">-π</text>
+        <text x="590" y="115">0</text>
+        <text x="790" y="115">π</text>
+        <text x="990" y="115">2π</text>
+        <text x="610" y="55">1</text>
+        <text x="610" y="155">-1</text>
+    
+        <!-- Courbe périodique -->
+        <path class="wave" d="M0,100 Q50,50 100,100 T200,100 T300,100 T400,100 T500,100 T600,100 T700,100 T800,100 T900,100 T1000,100 T1100,100 T1200,100" />
+      </svg>
+  </div>
+<div class="cardes">
+    <div class="card" style="width: 18rem;">
+        <img src="e.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Leonhard Euler</h5>
+            <p class="card-text">Leonhard Euler, l'un des plus grands mathématiciens de tous les temps, a contribué à de nombreux domaines comme le calcul, la théorie des graphes et les équations différentielles.</p>
+            <a href="https://en.wikipedia.org/wiki/Leonhard_Euler" class="btn btn-primary">En savoir plus</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img src="g.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Carl Friedrich Gauss</h5>
+            <p class="card-text">Carl Friedrich Gauss, surnommé le "Prince des mathématiques", a révolutionné les domaines de l'algèbre, de la géométrie et de la théorie des nombres.</p>
+            <a href="https://en.wikipedia.org/wiki/Carl_Friedrich_Gauss" class="btn btn-primary">En savoir plus</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img src="t.jpeg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Nikola Tesla</h5>
+            <p class="card-text">Nikola Tesla, inventeur et visionnaire, est connu pour ses travaux sur le courant alternatif, le magnétisme et ses inventions révolutionnaires dans l'électricité.</p>
+            <a href="https://en.wikipedia.org/wiki/Nikola_Tesla" class="btn btn-primary">En savoir plus</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img src="m.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">James Clerk Maxwell</h5>
+            <p class="card-text">James Clerk Maxwell, célèbre pour ses équations de l'électromagnétisme, a unifié les phénomènes électriques et magnétiques dans une seule théorie élégante.</p>
+            <a href="https://en.wikipedia.org/wiki/James_Clerk_Maxwell" class="btn btn-primary">En savoir plus</a>
+        </div>
+    </div>
+</div>
+<div class="cardes">
+    <div class="card" style="width: 18rem;">
+        <img src="LA.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Pierre-Simon Laplace</h5>
+            <p class="card-text">Laplace a révolutionné la mécanique céleste et a joué un rôle clé dans le développement de la probabilité et de l'analyse mathématique.</p>
+            <a href="https://en.wikipedia.org/wiki/Pierre-Simon_Laplace" class="btn btn-primary">En savoir plus</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img src="new.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Isaac Newton</h5>
+            <p class="card-text">Newton, père de la physique classique, est célèbre pour ses lois du mouvement et sa théorie de la gravitation universelle.</p>
+            <a href="https://en.wikipedia.org/wiki/Isaac_Newton" class="btn btn-primary">En savoir plus</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img src="FOU.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Joseph Fourier</h5>
+            <p class="card-text">Fourier a introduit l'analyse harmonique et transformé notre compréhension de la chaleur et des séries infinies.</p>
+            <a href="https://en.wikipedia.org/wiki/Joseph_Fourier" class="btn btn-primary">En savoir plus</a>
+        </div>
+    </div>
+    <div class="card" style="width: 18rem;">
+        <img src="s.jpg" class="card-img-top" alt="...">
+        <div class="card-body">
+            <h5 class="card-title">Erwin Schrödinger</h5>
+            <p class="card-text">Schrödinger, physicien théoricien, est reconnu pour son équation fondamentale décrivant la mécanique quantique.</p>
+            <a href="https://en.wikipedia.org/wiki/Erwin_Schrödinger" class="btn btn-primary">En savoir plus</a>
+        </div>
+    </div>
+</div>
+
+</div>
+
+<style>
+
+
+/* Style du conteneur */
+.cardes {
+    display: flex;                /* Aligne les éléments en ligne */
+    justify-content: space-around; /* Ajoute de l'espace autour des cartes */
+    flex-wrap: wrap;              /* Permet de passer sur une autre ligne si nécessaire */
+    gap: 20px;                    /* Espacement entre les cartes */
+    padding: 20px;
+}
+
+/* Style pour chaque carte */
+.card {
+    border: 1px solid #ddd;      /* Ajoute une bordure aux cartes */
+    border-radius: 8px;          /* Coins arrondis */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Effet d'ombre */
+    transition: transform 0.2s; /* Animation au survol */
+}
+
+.card:hover {
+    transform: scale(1.05);      /* Agrandit légèrement au survol */
+}
+.card-img-top{
+    width: 50%;
+}
+</style>
+
+    <script src="jacc.js"></script>
+</body>
+</html>    
